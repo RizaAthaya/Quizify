@@ -10,4 +10,5 @@ export interface DropdownProps {
     trigger: ReactNode;
     header?: Partial<User>;
     menuItems: MenuItem[];
+    className?: string
 }

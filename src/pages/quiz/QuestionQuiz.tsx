@@ -1,6 +1,8 @@
-import React from 'react'
+import { useQuiz } from "../../context/QuizContext";
 
 const QuestionQuiz = () => {
+  const { questions } = useQuiz();
+
   return (
     <div>
       QuestionQuiz
