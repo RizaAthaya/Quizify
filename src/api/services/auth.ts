@@ -13,11 +13,11 @@ export const login = async (email: string, password: string): Promise<User | nul
 
 export const googleLogin = async () => {
   const provider = new GoogleAuthProvider();
-  
+
   provider.setCustomParameters({
-    prompt: 'select_account', 
+    prompt: 'select_account',
   });
-  
+
   try {
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
@@ -25,20 +25,21 @@ export const googleLogin = async () => {
     console.error("Error during Google sign-in:", error);
   }
 };
-
 export const register = async (
   email: string,
   password: string,
   displayName: string
-) => {
+): Promise<User | null> => {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-
     const user = userCredential.user;
 
-    await updateProfile(user, { displayName });
+    await updateProfile(user, { displayName: displayName });
+
+    return user;
   } catch (error) {
     console.error("Error during registration:", error);
+    throw error;
   }
 };
 

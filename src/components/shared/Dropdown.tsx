@@ -22,7 +22,9 @@ const Dropdown: React.FC<DropdownProps> = ({ trigger, header, menuItems }) => {
                     {/* Header */}
                     {header && (
                         <div className="px-4 py-3">
-                            <p className="block text-sm text-gray-900">{header.displayName}</p>
+                            {header.displayName &&
+                                <p className="block text-sm text-gray-900">{header.displayName}</p>
+                            }
                             {header.email && (
                                 <p className="block text-sm text-gray-500 truncate">
                                     {header.email}

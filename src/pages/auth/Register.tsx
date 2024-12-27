@@ -1,8 +1,8 @@
-import FormLogin from "../../components/features/auth/FormLogin";
 import { googleLogin } from "../../api/services/auth";
+import FormRegister from "../../components/features/auth/FormRegister";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
   const navigate = useNavigate();  
 
   return (
@@ -10,12 +10,12 @@ const Login = () => {
       {/* Left side */}
       <div className="lg:w-1/2 lg:flex items-center justify-center flex-col text-blue-800 gap-14 py-10 px-32 bg-white hidden">
         <div className="flex flex-col gap-5">
-          <h1 className="font-bold text-4xl">Welcome to Quizify! 👋</h1>
+          <h1 className="font-bold text-4xl">Join Quizify Today! 🎉</h1>
           <p className="text-left text-lg">
-            A fun and interactive quiz platform designed to test your knowledge on various topics. It's perfect for both casual users and competitive learners.
+            Become part of a fun and interactive quiz community! Sign up to challenge your knowledge and compete with others across various topics.
           </p>
         </div>
-        <img src="/src/assets/Question.svg" className="max-w-md xl:max-w-lg" />
+        <img src="/src/assets/Computer.svg" className="max-w-lg" />
       </div>
 
       {/* Right side */}
@@ -25,36 +25,37 @@ const Login = () => {
         <div className="absolute inset-0 bg-blue-600 bg-opacity-30 backdrop-blur-sm"></div>
 
         {/* Form Box */}
-        <div className="relative w-[calc(100%-36px)] lg:w-full max-w-md bg-white p-6 lg:p-8 rounded-lg shadow-lg z-10">
-          <FormLogin />
+        <div className="relative w-[calc(100%-32px)] lg:w-full max-w-md bg-white p-8 rounded-lg shadow-lg z-10">
+          <FormRegister />
 
-          {/* Line */}
+          {/* Separator line with "or" */}
           <div className="flex items-center my-4">
             <div className="flex-grow border-t border-gray-300"></div>
             <span className="mx-4 text-gray-500">or</span>
             <div className="flex-grow border-t border-gray-300"></div>
           </div>
 
-          {/* Google Button */}
+          {/* Google Sign-In Button */}
           <div className="flex justify-center mt-4">
             <button
               onClick={googleLogin}
               className="flex items-center justify-center w-full py-2 px-4 border-2 border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none"
             >
+              {/* Google Logo */}
               <img src="/src/assets/google.png" alt="Google logo" className="w-5 h-5 mr-3" />
-              Sign in with Google
+              Sign up with Google
             </button>
           </div>
 
-           {/* to login*/}
-           <div className="mt-4 text-center">
+          {/* to login*/}
+          <div className="mt-4 text-center">
             <p className="text-sm text-gray-600">
-              Have no account yet?{" "}
+              Already have an account?{" "}
               <button
-                onClick={() => navigate("/auth/register")}  // Navigate to the login page
+                onClick={() => navigate("/auth/login")}  // Navigate to the login page
                 className="text-blue-600 hover:underline"
               >
-                Register here
+                Login here
               </button>
             </p>
           </div>
@@ -64,4 +65,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

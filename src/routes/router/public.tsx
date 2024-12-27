@@ -1,5 +1,6 @@
 import { Navigate } from 'react-router-dom';
 import Login from '../../pages/auth/Login';
+import Register from '../../pages/auth/Register';
 
 export const publicRoutes = [
   {
@@ -12,7 +13,11 @@ export const publicRoutes = [
       {
         path: "login",
         element: <Login />,
-      }
+      },
+      {
+        path: "register",
+        element: <Register />,
+      },
     ]
   }
 ];

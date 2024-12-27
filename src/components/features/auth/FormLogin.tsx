@@ -27,7 +27,7 @@ const FormLogin = () => {
         },
         (error) => {
             console.error("Login failed:", error);
-            showAlert({ type: "error", message: "Login failed!" });
+            showAlert({ type: "error", message: error.message });
         }
     );
 
