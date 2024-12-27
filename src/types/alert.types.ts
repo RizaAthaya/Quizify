@@ -21,3 +21,4 @@ export interface AlertProps {
     children?: ReactNode;
     [key: string]: any;
 }
+  

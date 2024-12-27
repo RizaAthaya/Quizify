@@ -1,9 +1,5 @@
+import { User } from "firebase/auth";
 import { ReactNode } from "react";
-
-export interface Header {
-    name: string;
-    email?: string;
-}
 
 export interface MenuItem {
     label: string;
@@ -12,6 +8,6 @@ export interface MenuItem {
 
 export interface DropdownProps {
     trigger: ReactNode;
-    header?: Header;
+    header?: Partial<User>;
     menuItems: MenuItem[];
 }

@@ -16,13 +16,15 @@ const Dropdown: React.FC<DropdownProps> = ({ trigger, header, menuItems }) => {
             {/* Content */}
             {isOpen && (
                 <div
-                    className="absolute right-0 z-50 mt-2 w-40 bg-white divide-y divide-gray-100 rounded-lg shadow"
+                    className="absolute right-0 z-50 mt-2 w-52 bg-white divide-y divide-gray-100 rounded-lg shadow"
                     onClick={() => setIsOpen(false)}
                 >
                     {/* Header */}
                     {header && (
                         <div className="px-4 py-3">
-                            <p className="block text-sm text-gray-900">{header.name}</p>
+                            {header.displayName &&
+                                <p className="block text-sm text-gray-900">{header.displayName}</p>
+                            }
                             {header.email && (
                                 <p className="block text-sm text-gray-500 truncate">
                                     {header.email}

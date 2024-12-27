@@ -1,10 +1,12 @@
 import { Navigate, Outlet } from "react-router-dom";
+import { useUser } from "../context/UserContext";
 
 const GuestRoute = () => {
-    const isAuthenticated = false;
+    const { user } = useUser();
 
-    return isAuthenticated ? <Navigate to="/admin/dashboard" replace={true} /> : <Outlet />;
+    const isAuthenticated = !!user;
 
+    return isAuthenticated ? <Navigate to="/dashboard" replace={true} /> : <Outlet />;
 };
 
 export default GuestRoute;
