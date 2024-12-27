@@ -1,5 +1,5 @@
 import React from 'react';
-import CategoryDropdown from './CategoryDropdown';
+import QuizCategoryDropdown from './QuizCategoryDropdown';
 import GroupButton from '../../shared/GroupButton';
 import InputNumber from '../../shared/InputNumber';
 import Button from '../../shared/Button';
@@ -19,13 +19,12 @@ const QuizSettings: React.FC = () => {
     } = useQuizSettings();
     const navigate = useNavigate()
 
-
     return (
         <div className="w-full bg-white p-6 rounded-lg shadow-lg flex flex-col lg:gap-2">
             <h2 className="text-xl lg:text-2xl font-semibold text-gray-800 lg:mb0 mb-2">Make Your Quiz!</h2>
 
             {/* Categories */}
-            <CategoryDropdown />
+            <QuizCategoryDropdown />
 
             {/* Types */}
             <GroupButton

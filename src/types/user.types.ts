@@ -1,16 +1,12 @@
 import { User } from "firebase/auth";
+import { IMenuItem } from "./dropdown.types";
 
-export interface MenuItem {
-    label: string;
-    onClick: () => void;
-}
-
-export interface UserAvatarProps extends Partial<User> {
+export interface IUserAvatarProps extends Partial<User> {
     avatar: string;
 }
 
-export interface UserMenuProps {
+export interface IUserMenuProps {
     className?: string,
-    user: UserAvatarProps;
-    menuItems: MenuItem[];
+    user: IUserAvatarProps;
+    menuItems: IMenuItem[];
 }

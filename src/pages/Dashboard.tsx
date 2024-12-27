@@ -10,7 +10,7 @@ const Dashboard: React.FC = () => {
     <div className="w-full h-auto lg:h-full flex flex-col p-6 lg:p-10">
       {/* Title */}
       <div className="text-center mb-8">
-        <h1 className="text-3xl lg:text-4xl font-semibold text-blue-800">Hi, {user?.displayName}!</h1>
+        <h1 className="text-3xl lg:text-4xl font-semibold text-blue-800">Hi {user?.displayName}!</h1>
         <span className="text-base lg:text-lg text-gray-600 mt-2 block">How's your day? Ready to train the brain?</span>
       </div>
 

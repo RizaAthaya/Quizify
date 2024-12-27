@@ -1,13 +1,13 @@
 import React, { createContext, useContext, useState } from "react";
 import Alert from "../components/shared/Alert";
-import { AlertContextType, AlertProviderProps, AlertState } from "../types/alert.types";
+import { IAlertContext, IAlertContextProps, IAlert } from "../types/alert.types";
 
-const AlertContext = createContext<AlertContextType | null>(null);
+const AlertContext = createContext<IAlertContext | null>(null);
 
-export const AlertProvider: React.FC<AlertProviderProps> = ({ children }) => {
-  const [alert, setAlert] = useState<AlertState | null>(null);
+export const AlertProvider: React.FC<IAlertContextProps> = ({ children }) => {
+  const [alert, setAlert] = useState<IAlert | null>(null);
 
-  const showAlert = ({ type = "error", message }: AlertState) => {
+  const showAlert = ({ type = "error", message }: IAlert) => {
     setAlert({ type, message });
     setTimeout(() => setAlert(null), 3000);
   };
@@ -31,7 +31,7 @@ export const AlertProvider: React.FC<AlertProviderProps> = ({ children }) => {
   );
 };
 
-export const useAlert = (): AlertContextType => {
+export const useAlert = (): IAlertContext => {
   const context = useContext(AlertContext);
   if (!context) {
     throw new Error("useAlert must be used within an AlertProvider");

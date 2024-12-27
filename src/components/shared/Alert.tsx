@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { InformationCircleIcon, ExclamationCircleIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
-import { AlertProps } from "../../types/alert.types";
+import { IAlertProps } from "../../types/alert.types";
 
-const Alert: FC<AlertProps> = ({ type = "info", title, children, ...props }) => {
+const Alert: FC<IAlertProps> = ({ type = "info", title, children, ...props }) => {
   const typeStyles = {
     info: {
       container: "text-blue-800 border-blue-300 bg-blue-50",

@@ -1,22 +1,22 @@
 import { ReactNode } from "react";
 
-export type AlertType = "info" | "error" | "success";
+export type TAlertType = "info" | "error" | "success";
 
-export interface AlertState {
-    type: AlertType;
+export interface IAlert {
+    type: TAlertType;
     message: string;
 }
 
-export interface AlertContextType {
-    showAlert: (alert: AlertState) => void;
+export interface IAlertContext {
+    showAlert: (alert: IAlert) => void;
 }
 
-export interface AlertProviderProps {
+export interface IAlertContextProps {
     children: ReactNode;
 }
 
-export interface AlertProps {
-    type?: AlertType;
+export interface IAlertProps {
+    type?: TAlertType;
     title?: string;
     children?: ReactNode;
     [key: string]: any;

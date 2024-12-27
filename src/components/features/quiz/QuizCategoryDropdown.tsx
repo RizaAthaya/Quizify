@@ -3,7 +3,7 @@ import Dropdown from "../../shared/Dropdown";
 import { ICategory } from "../../../types/quiz.types";
 import { useQuiz } from "../../../context/QuizContext";
 
-const CategoryDropdown: React.FC = () => {
+const QuizCategoryDropdown: React.FC = () => {
     const { categories } = useQuiz();
     const [selectedCategory, setSelectedCategory] = useState<number>(0);
 
@@ -32,4 +32,4 @@ const CategoryDropdown: React.FC = () => {
     );
 };
 
-export default CategoryDropdown;
+export default QuizCategoryDropdown;
