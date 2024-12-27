@@ -1,10 +1,9 @@
-import App from '../../App';
 import Login from '../../pages/auth/Login';
 
 export const publicRoutes = [
   {
     path: '/',
-    element: <App />,
+    element: <Login />,
   },
   {
     path: '/auth',

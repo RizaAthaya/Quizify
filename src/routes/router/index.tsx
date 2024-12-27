@@ -8,21 +8,19 @@ import GuestRoute from "../GuestRoute";
 export const router = createBrowserRouter([
   // Public
   {
-    path: "/",
     element: <GuestRoute />,
     children: publicRoutes,
   },
 
   // Private 
   {
-    path: "/",
     element: <ProtectedRoute />,
     children: privateRoutes,
   },
 
   // Fallback
   {
-    path: "/",
+    path: "*",
     children: fallbackRoutes,
   },
 ]);
