@@ -1,17 +1,29 @@
-import sjcl from 'sjcl';
+import forge from 'node-forge';
 
 const secretKey = import.meta.env.VITE_ENCRYPT_KEY;
 
-// Handle encryption with sjcl
 export const handleEncrypt = (data: Record<string, any>) => {
-    const encrypted = sjcl.encrypt(secretKey, JSON.stringify(data));
+    const cipher = forge.cipher.createCipher('AES-CBC', secretKey);
+    const iv = forge.random.getBytesSync(16); // AES 
+    cipher.start({ iv });
+    cipher.update(forge.util.createBuffer(JSON.stringify(data)));
+    cipher.finish();
+    const encrypted = forge.util.encode64(iv + cipher.output.getBytes());
     return encrypted;
 };
 
-// Handle decryption with sjcl
 export const handleDecrypt = (data: string) => {
     try {
-        const decrypted = sjcl.decrypt(secretKey, data);
+        const encryptedBytes = forge.util.decode64(data);
+        const iv = encryptedBytes.slice(0, 16);
+        const encryptedData = encryptedBytes.slice(16);
+
+        const decipher = forge.cipher.createDecipher('AES-CBC', secretKey);
+        decipher.start({ iv });
+        decipher.update(forge.util.createBuffer(encryptedData));
+        decipher.finish();
+
+        const decrypted = decipher.output.toString();
         return JSON.parse(decrypted);
     } catch (error) {
         return {
