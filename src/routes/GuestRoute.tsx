@@ -4,21 +4,16 @@ import { useUser } from '../context/UserContext';
 import LoadingPage from '../pages/fallback/LoadingPage';
 
 const GuestRoute: React.FC = () => {
-  const { user, loading } = useUser(); 
+  const { user, loading } = useUser();
 
   const isAuthenticated = !!user;
-  const quiz = !!localStorage.getItem('quizify_data');
-  
+
   if (loading) {
-    return <LoadingPage />; 
+    return <LoadingPage />;
   }
 
   if (isAuthenticated) {
-    if (quiz) {
-      return <Navigate to="/quiz" replace />;
-    } else {
-      return <Navigate to="/dashboard" replace />;
-    }
+    return <Navigate to="/dashboard" replace />;
   }
 
   return <Outlet />;
