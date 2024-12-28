@@ -2,7 +2,7 @@ import forge from 'node-forge';
 
 const secretKey = import.meta.env.VITE_ENCRYPT_KEY;
 
-const keyBytes = forge.util.createBuffer(secretKey, 'utf8'); 
+const keyBytes = forge.util.createBuffer(forge.md.sha256.create().update(secretKey).digest());
 
 export const handleEncrypt = (data: Record<string, any>) => {
     const cipher = forge.cipher.createCipher('AES-CBC', keyBytes);
