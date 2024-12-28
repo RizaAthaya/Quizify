@@ -21,7 +21,7 @@ export const useCategoriesQuery = () =>
     });
 
 export const useQuizQuestions = (params?: IQuizParams) => {
-    const { data } = useQuery({
+    const { data, isPending } = useQuery({
         queryKey: ["questions", params],
         queryFn: () => getQuestions(params),
         enabled: true,
@@ -30,5 +30,5 @@ export const useQuizQuestions = (params?: IQuizParams) => {
         refetchOnWindowFocus: false,
         staleTime: Infinity,
     });
-    return data
+    return { data, isPending }
 };

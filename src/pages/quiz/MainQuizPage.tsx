@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import useSavedData from "../../hooks/useSavedData";
 import { useTimer } from "../../hooks/useTimer";
 import { useQuizProgress } from "../../hooks/useQuizProgress";
+import LoadingPage from "../fallback/LoadingPage";
 
 const MainQuizPage: React.FC = () => {
   // Timer 
@@ -19,7 +20,7 @@ const MainQuizPage: React.FC = () => {
 
   // Get question props 
   const { selectedCategory, selectedType, selectedDifficulty, numQuestions, token } = useQuizSettings();
-  
+
   // questions
   const savedData = useSavedData();
   const localQuestions = localStorage.getItem("quizify_data") ? savedData.questions : null;
@@ -31,18 +32,18 @@ const MainQuizPage: React.FC = () => {
     type: selectedType,
     token: token,
   });
-  const questions = React.useMemo(() => localQuestions || fetchedQuestions, [localQuestions, fetchedQuestions]);
+  const questions = React.useMemo(() => localQuestions || fetchedQuestions.data, [localQuestions, fetchedQuestions]);
   const currentQuestion = questions?.[currentQuestionIndex];
 
   const navigate = useNavigate();
-  
+
   // Local storage 
   const updateLocalStorage = useQuizProgress(
-    questions, 
-    token, 
-    score, 
-    selectedCategory, 
-    selectedDifficulty, 
+    questions,
+    token,
+    score,
+    selectedCategory,
+    selectedDifficulty,
     selectedType
   );
 
@@ -74,6 +75,11 @@ const MainQuizPage: React.FC = () => {
   const handleTimeUp = () => {
     setTimeout(moveToNextQuestion, 500);
   };
+
+  // isloading 
+  if (fetchedQuestions.isPending) {
+    return <LoadingPage />;
+  }
 
   return (
     currentQuestion && (
