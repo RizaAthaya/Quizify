@@ -1,17 +1,18 @@
-import CryptoJS from 'crypto-js'
+import sjcl from 'sjcl';
 
-const secretKey = import.meta.env.VITE_ENCRYPT_KEY
+const secretKey = import.meta.env.VITE_ENCRYPT_KEY;
 
+// Handle encryption with sjcl
 export const handleEncrypt = (data: Record<string, any>) => {
-    const encrypted = CryptoJS.AES.encrypt(JSON.stringify(data), secretKey).toString();
-    return encrypted
+    const encrypted = sjcl.encrypt(secretKey, JSON.stringify(data));
+    return encrypted;
 };
 
+// Handle decryption with sjcl
 export const handleDecrypt = (data: string) => {
     try {
-        const bytes = CryptoJS.AES.decrypt(data, secretKey);
-        const decrypted = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-        return decrypted;
+        const decrypted = sjcl.decrypt(secretKey, data);
+        return JSON.parse(decrypted);
     } catch (error) {
         return {
             token: undefined,
