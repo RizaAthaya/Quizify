@@ -1,9 +1,9 @@
 import React, { useState, forwardRef } from 'react';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import Button from './Button';
-import { InputProps } from './Input';
+import { IInputProps } from './Input';
 
-const InputPassword = forwardRef<HTMLInputElement, InputProps>(
+const InputPassword = forwardRef<HTMLInputElement, IInputProps>(
   ({ label, errorMessage, required = false, ...rest }, ref) => {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 

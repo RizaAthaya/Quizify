@@ -28,14 +28,14 @@ const Register = () => {
         <div className="relative w-[calc(100%-32px)] lg:w-full max-w-md bg-white p-8 rounded-lg shadow-lg z-10">
           <FormRegister />
 
-          {/* Separator line with "or" */}
+          {/* Line */}
           <div className="flex items-center my-4">
             <div className="flex-grow border-t border-gray-300"></div>
             <span className="mx-4 text-gray-500">or</span>
             <div className="flex-grow border-t border-gray-300"></div>
           </div>
 
-          {/* Google Sign-In Button */}
+          {/* Google */}
           <div className="flex justify-center mt-4">
             <button
               onClick={googleLogin}
@@ -52,7 +52,7 @@ const Register = () => {
             <p className="text-sm text-gray-600">
               Already have an account?{" "}
               <button
-                onClick={() => navigate("/auth/login")}  // Navigate to the login page
+                onClick={() => navigate("/auth/login")} 
                 className="text-blue-600 hover:underline"
               >
                 Login here

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { DropdownProps } from "../../types/dropdown.types";
+import { IDropdownProps } from "../../types/dropdown.types";
 
-const Dropdown: React.FC<DropdownProps> = ({ trigger, header, menuItems }) => {
+const Dropdown: React.FC<IDropdownProps> = ({ trigger, header, menuItems, className }) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const toggleDropdown = () => setIsOpen(!isOpen);
@@ -16,7 +16,7 @@ const Dropdown: React.FC<DropdownProps> = ({ trigger, header, menuItems }) => {
             {/* Content */}
             {isOpen && (
                 <div
-                    className="absolute right-0 z-50 mt-2 w-52 bg-white divide-y divide-gray-100 rounded-lg shadow"
+                    className={`absolute right-0 z-50 mt-2 bg-white divide-y divide-gray-100 rounded-lg shadow ${className}`}
                     onClick={() => setIsOpen(false)}
                 >
                     {/* Header */}

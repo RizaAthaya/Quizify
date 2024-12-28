@@ -1,6 +1,7 @@
 import MainLayout from "../../layouts/MainLayout";
 import Dashboard from "../../pages/Dashboard";
-import QuestionQuiz from "../../pages/quiz/QuestionQuiz";
+import MainQuizPage from "../../pages/quiz/MainQuizPage";
+import ResultsQuizPage from "../../pages/quiz/ResultsQuizPage";
 
 export const privateRoutes = [
     {
@@ -13,7 +14,11 @@ export const privateRoutes = [
             },
             {
                 path: 'quiz',
-                element: <QuestionQuiz />
+                element: <MainQuizPage />
+            },
+            {
+                path: 'results',
+                element: <ResultsQuizPage />
             },
         ]
     }

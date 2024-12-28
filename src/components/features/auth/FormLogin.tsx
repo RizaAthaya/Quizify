@@ -3,7 +3,7 @@ import InputPassword from '../../shared/InputPassword'
 import Button from '../../shared/Button'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useAlert } from '../../../context/AlertContext'
-import { LoginFormValues, useLogin } from '../../../hooks/useLogin'
+import { TLoginFormValues, useLogin } from '../../../hooks/useLogin'
 import Spinner from '../../shared/Spinner'
 
 const FormLogin = () => {
@@ -12,9 +12,9 @@ const FormLogin = () => {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<LoginFormValues>();
+    } = useForm<TLoginFormValues>();
 
-    const handleLogin: SubmitHandler<LoginFormValues> = (data) => {
+    const handleLogin: SubmitHandler<TLoginFormValues> = (data) => {
         mutate(data);
     };
 
@@ -33,6 +33,7 @@ const FormLogin = () => {
 
     return (
         <form onSubmit={handleSubmit(handleLogin)} className="relative space-y-6 z-20">
+            {/* Title  */}
             <h2 className="text-xl lg:text-2xl font-semibold text-center mb-4">Login</h2>
 
             <Input
