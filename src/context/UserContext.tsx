@@ -12,9 +12,11 @@ type UserContextType = {
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
+    // states 
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true); 
 
+    // logout 
     const logout = async () => {
         try {
             await auth.signOut();

@@ -3,6 +3,7 @@ import { InformationCircleIcon, ExclamationCircleIcon, CheckCircleIcon } from "@
 import { IAlertProps } from "../../types/alert.types";
 
 const Alert: FC<IAlertProps> = ({ type = "info", title, children, ...props }) => {
+  // type 
   const typeStyles = {
     info: {
       container: "text-blue-800 border-blue-300 bg-blue-50",
@@ -18,6 +19,7 @@ const Alert: FC<IAlertProps> = ({ type = "info", title, children, ...props }) =>
     },
   };
 
+  // get value 
   const { container, icon } = typeStyles[type] || typeStyles.info;
 
   return (

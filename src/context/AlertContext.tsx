@@ -5,6 +5,7 @@ import { IAlertContext, IAlertContextProps, IAlert } from "../types/alert.types"
 const AlertContext = createContext<IAlertContext | null>(null);
 
 export const AlertProvider: React.FC<IAlertContextProps> = ({ children }) => {
+  // states 
   const [alert, setAlert] = useState<IAlert | null>(null);
 
   const showAlert = ({ type = "error", message }: IAlert) => {

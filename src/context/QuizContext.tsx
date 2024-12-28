@@ -5,6 +5,7 @@ import { IQuizContext, IQuizProps } from "../types/quiz.types";
 const QuizContext = createContext<IQuizContext | null>(null);
 
 export const QuizProvider: React.FC<IQuizProps> = ({ children }) => {
+    // states 
     const { data } = useCategoriesQuery();
     const categories = data && data || []
     const [questions, setQuestions] = useState([])

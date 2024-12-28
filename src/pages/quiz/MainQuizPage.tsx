@@ -36,7 +36,7 @@ const MainQuizPage: React.FC = () => {
 
   const navigate = useNavigate();
   
-  // Local storage update handler
+  // Local storage 
   const updateLocalStorage = useQuizProgress(
     questions, 
     token, 
@@ -46,7 +46,7 @@ const MainQuizPage: React.FC = () => {
     selectedType
   );
 
-  // Move to next question
+  // next question
   const moveToNextQuestion = useCallback(() => {
     resetTimer();
 
@@ -70,7 +70,7 @@ const MainQuizPage: React.FC = () => {
     setTimeout(moveToNextQuestion, 100);
   };
 
-  // Handle timer up event
+  // Handle times up
   const handleTimeUp = () => {
     setTimeout(moveToNextQuestion, 500);
   };

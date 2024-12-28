@@ -1,11 +1,11 @@
 import React from 'react';
 
-type SpinnerProps = {
+type TSpinnerProps = {
     size?: 'extraSmall' | 'small' | 'medium' | 'large' | 'extraLarge';
     color?: 'blue' | 'red' | 'green' | 'gray';
 };
 
-const Spinner: React.FC<SpinnerProps> = ({ size = 'medium', color = 'blue' }) => {
+const Spinner: React.FC<TSpinnerProps> = ({ size = 'medium', color = 'blue' }) => {
     const sizeClasses: Record<string, string> = {
         extraSmall: 'w-5 h-5',
         small: 'w-6 h-6',

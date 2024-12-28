@@ -2,7 +2,16 @@ import React, { useEffect, useState } from "react";
 import { IQuizQuestionProps } from "../../../types/question.types";
 
 const QuizQuestion: React.FC<IQuizQuestionProps> = ({ questionData, onAnswerSelected }) => {
+    // states 
     const [choices, setChoices] = useState<string[]>([]);
+
+    const handleChoiceClick = (choice: string) => {
+        const isCorrect = choice === questionData?.correct_answer;
+        onAnswerSelected(isCorrect);
+    };
+    
+    // html code to string 
+    const decodedText = (text: string) => { return new DOMParser().parseFromString(text, "text/html").documentElement.textContent };
 
     useEffect(() => {
         const allChoices = [
@@ -11,14 +20,7 @@ const QuizQuestion: React.FC<IQuizQuestionProps> = ({ questionData, onAnswerSele
         ];
         setChoices(allChoices.sort(() => Math.random() - 0.5));
     }, [questionData.question]);
-
-    const handleChoiceClick = (choice: string) => {
-        const isCorrect = choice === questionData?.correct_answer;
-        onAnswerSelected(isCorrect);
-    };
-
-    const decodedText = (text: string) => { return new DOMParser().parseFromString(text, "text/html").documentElement.textContent };
-
+    
     return (
         <div className="max-w-[calc(100%-32px)] lg:max-w-4xl mx-auto py-6 md:py-14 px-4 md:px-8 bg-white shadow-lg rounded-lg">
             <h2 className="text-xl md:text-2xl font-semibold text-center flex items-center justify-center min-h-24 md:min-h-40 pb-6 md:pb-16">{decodedText(questionData.question)}</h2>

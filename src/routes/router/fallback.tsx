@@ -1,8 +1,8 @@
-import NotFound from "../../pages/fallback/NotFound";
+import NotFoundPage from "../../pages/fallback/NotFoundPage";
 
 export const fallbackRoutes = [
   {
     path: '*',
-    element: <NotFound />,
+    element: <NotFoundPage />,
   },
 ];

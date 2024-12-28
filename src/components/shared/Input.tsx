@@ -1,14 +1,14 @@
 import React from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   errorMessage?: string;
   required?: boolean;
   register?: UseFormRegisterReturn;
 }
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
+const Input = React.forwardRef<HTMLInputElement, IInputProps>(
   ({ label, errorMessage, required = false, register, ...rest }, ref) => {
     return (
       <div className="w-full">

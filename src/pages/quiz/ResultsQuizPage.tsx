@@ -4,10 +4,12 @@ import Button from "../../components/shared/Button";
 import Box from "../../components/shared/Box";
 
 const ResultsQuizPage = () => {
+    // states 
     const navigate = useNavigate();
     const quizifyData = useSavedData();
     const { score, amount, category, difficulty, type } = quizifyData;
 
+    // calculate 
     const totalTime = amount * 60;
     const calculatedScore = Math.round((score / amount) * 100);
 

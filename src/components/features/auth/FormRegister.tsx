@@ -3,7 +3,7 @@ import InputPassword from '../../shared/InputPassword';
 import Button from '../../shared/Button';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useAlert } from '../../../context/AlertContext';
-import { RegisterFormValues, useRegister } from '../../../hooks/useRegister';
+import { TRegisterFormValues, useRegister } from '../../../hooks/useRegister';
 import Spinner from '../../shared/Spinner';
 
 const FormRegister = () => {
@@ -12,10 +12,10 @@ const FormRegister = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<RegisterFormValues>();
+  } = useForm<TRegisterFormValues>();
 
-  const handleRegister: SubmitHandler<RegisterFormValues> = (data) => {
-    mutate(data);  
+  const handleRegister: SubmitHandler<TRegisterFormValues> = (data) => {
+    mutate(data);
   };
 
   const { showAlert } = useAlert();
@@ -33,6 +33,7 @@ const FormRegister = () => {
 
   return (
     <form onSubmit={handleSubmit(handleRegister)} className="relative space-y-6 z-20">
+      {/* Title  */}
       <h2 className="text-xl lg:text-2xl font-semibold text-center mb-4">Register</h2>
 
       <Input

@@ -1,6 +1,6 @@
 import React from "react";
 
-interface InputNumberProps {
+interface IInputNumberProps {
   id: string;
   value: number;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -10,7 +10,7 @@ interface InputNumberProps {
   label: string;
 }
 
-const InputNumber: React.FC<InputNumberProps> = ({
+const InputNumber: React.FC<IInputNumberProps> = ({
   id,
   value,
   onChange,
