@@ -78,7 +78,7 @@ const MainQuizPage: React.FC = () => {
 
   // Handle times up
   const handleTimeUp = () => {
-    setAnswered(answered - 1)
+    setAnswered(answered + 1)
     setTimeout(moveToNextQuestion, 500);
   };
 

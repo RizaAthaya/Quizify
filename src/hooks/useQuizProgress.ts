@@ -24,7 +24,7 @@ export const useQuizProgress = (
           type: selectedType,
           questions,
         });
-        localStorage.setItem("quizify_data", updatedData + "");
+        localStorage.setItem("quizify_data", updatedData);
       },
       [questions, answered, token, score, selectedCategory, selectedDifficulty, selectedType]
     );
