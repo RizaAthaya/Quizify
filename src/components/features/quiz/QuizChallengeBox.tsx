@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import { useQuizSettings } from '../../../context/QuizSettingsContext'
 import Button from '../../shared/Button'
+// assets 
+import Image from "../../../assets/hard.svg"
 
 const QuizChallengeBox = () => {
     const { setSelectedDifficulty } = useQuizSettings()
@@ -21,7 +23,7 @@ const QuizChallengeBox = () => {
                     Start Random Quiz
                 </Button>
             </div>
-            <img src="/src/assets/hard.svg" className="lg:block hidden max-w-sm py-6" />
+            <img src={Image} className="lg:block hidden max-w-sm py-6" />
         </div>
     )
 }
