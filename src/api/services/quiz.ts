@@ -1,4 +1,4 @@
-import { QuestionsParams } from "../../types/quiz.types";
+import { IQuizParams } from "../../types/quiz.types";
 import axiosInstance from "../opendb";
 
 export const getToken = async (): Promise<string> => {
@@ -14,7 +14,7 @@ export const getCategories = async (): Promise<{ id: number; name: string }[]> =
     return response.data.trivia_categories;
 };
 
-export const getQuestions = async (params?: QuestionsParams): Promise<any[]> => {
+export const getQuestions = async (params?: IQuizParams): Promise<any[]> => {
     const { amount = 10, category, difficulty, type, token } = params || {};
     const query = new URLSearchParams();
 

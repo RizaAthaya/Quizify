@@ -1,7 +1,7 @@
 import React from 'react';
 
 type SpinnerProps = {
-    size?: 'extraSmall' | 'small' | 'medium' | 'large';
+    size?: 'extraSmall' | 'small' | 'medium' | 'large' | 'extraLarge';
     color?: 'blue' | 'red' | 'green' | 'gray';
 };
 
@@ -11,6 +11,7 @@ const Spinner: React.FC<SpinnerProps> = ({ size = 'medium', color = 'blue' }) =>
         small: 'w-6 h-6',
         medium: 'w-8 h-8',
         large: 'w-12 h-12',
+        extraLarge: 'w-24 h-24',
     };
 
     const colorClasses: Record<string, string> = {

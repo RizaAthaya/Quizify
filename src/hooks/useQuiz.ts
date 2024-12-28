@@ -4,9 +4,13 @@ import { IQuizParams } from "../types/quiz.types";
 
 export const useTokenQuery = () =>
     useQuery({
-        queryKey: ["sessionToken"],
+        queryKey: [""],
         queryFn: getToken,
-        staleTime: 1000 * 60 * 60,
+        enabled: true,
+        refetchOnMount: false,
+        refetchOnReconnect: false,
+        refetchOnWindowFocus: false,
+        staleTime: Infinity,
     });
 
 export const useCategoriesQuery = () =>
@@ -16,11 +20,15 @@ export const useCategoriesQuery = () =>
         staleTime: 1000 * 60 * 5,
     });
 
-export const useQuestionsQuery = (params?: IQuizParams) =>
-    useQuery({
+export const useQuizQuestions = (params?: IQuizParams) => {
+    const { data } = useQuery({
         queryKey: ["questions", params],
         queryFn: () => getQuestions(params),
-        staleTime: 1000 * 60 * 5, 
-        retry: 2, 
-        retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 3000), // Exponential backoff (max 3s delay)
+        enabled: true,
+        refetchOnMount: false,
+        refetchOnReconnect: false,
+        refetchOnWindowFocus: false,
+        staleTime: Infinity,
     });
+    return data
+};

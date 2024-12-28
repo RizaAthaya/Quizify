@@ -1,4 +1,4 @@
-import NotFound from "../../pages/errors/NotFound";
+import NotFound from "../../pages/fallback/NotFound";
 
 export const fallbackRoutes = [
   {

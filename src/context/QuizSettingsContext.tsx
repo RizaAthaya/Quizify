@@ -1,18 +1,31 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { TQuizType, IQuizProps, IQuizSettingsContext, TQuizDifficulty } from "../types/quiz.types";
-import useSavedQuizData from "../hooks/useSavedData";
+import useSavedData from "../hooks/useSavedData";
+import { getToken } from "../api/services/quiz";
 
 const QuizSettingsContext = createContext<IQuizSettingsContext | undefined>(undefined);
 
 export const QuizSettingsProvider: React.FC<IQuizProps> = ({ children }) => {
-  const savedData = useSavedQuizData();
+  const savedData = useSavedData();
 
+  // states 
   const [selectedCategory, setSelectedCategory] = useState<number>(savedData.category ? savedData.category : 0);
   const [selectedType, setSelectedType] = useState<TQuizType>(savedData.type);
   const [selectedDifficulty, setSelectedDifficulty] = useState<TQuizDifficulty>(savedData.difficulty);
   const [numQuestions, setNumQuestions] = useState<number>(savedData.amount);
   const [token, setToken] = useState<string>(savedData.token);
-  
+
+  useEffect(() => {
+    const fetchToken = async () => {
+      if (!savedData.token) {
+        const newToken = await getToken();
+        setToken(newToken);
+      }
+    };
+
+    fetchToken();
+  }, []);
+
   return (
     <QuizSettingsContext.Provider
       value={{
