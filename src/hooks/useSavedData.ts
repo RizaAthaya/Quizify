@@ -9,6 +9,7 @@ const useSavedData = () => {
         num: savedData?.num || 0,
         score: savedData?.score || 0,
         amount: savedData?.amount || 10,
+        answered:  savedData?.answered || 0,
         category: savedData?.category || 0,
         difficulty: savedData?.difficulty || 'any',
         type: savedData?.type || 'any',

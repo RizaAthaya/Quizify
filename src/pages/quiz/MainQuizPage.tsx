@@ -14,17 +14,19 @@ const MainQuizPage: React.FC = () => {
   const initialTime = localStorage.getItem("timer") ? Number(localStorage.getItem("timer")) : 60;
   const { time, setTime, resetTimer } = useTimer(initialTime);
 
+  // get old questions from localtorage
+  const savedData = useSavedData();
+  const localQuestions = localStorage.getItem("quizify_data") ? savedData.questions : null;
+
   // state
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [score, setScore] = useState<number>(0);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(savedData.num);
+  const [score, setScore] = useState<number>(savedData.score);
+  const [answered, setAnswered] = useState<number>(savedData.answered);
 
   // Get question props 
   const { selectedCategory, selectedType, selectedDifficulty, numQuestions, token } = useQuizSettings();
 
-  // questions
-  const savedData = useSavedData();
-  const localQuestions = localStorage.getItem("quizify_data") ? savedData.questions : null;
-
+  // fecthing new questions 
   const fetchedQuestions = useQuizQuestions({
     amount: numQuestions,
     category: selectedCategory,
@@ -42,6 +44,7 @@ const MainQuizPage: React.FC = () => {
     questions,
     token,
     score,
+    answered,
     selectedCategory,
     selectedDifficulty,
     selectedType
@@ -52,7 +55,7 @@ const MainQuizPage: React.FC = () => {
     resetTimer();
 
     if (questions && currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex((prevIndex) => {
+      setCurrentQuestionIndex((prevIndex: number) => {
         const newIndex = prevIndex + 1;
         updateLocalStorage(newIndex);
         return newIndex;
@@ -68,11 +71,14 @@ const MainQuizPage: React.FC = () => {
     if (isCorrect) {
       setScore((prevScore) => prevScore + 1);
     }
+
     setTimeout(moveToNextQuestion, 100);
   };
 
+
   // Handle times up
   const handleTimeUp = () => {
+    setAnswered(answered - 1)
     setTimeout(moveToNextQuestion, 500);
   };
 

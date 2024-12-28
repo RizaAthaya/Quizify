@@ -7,7 +7,7 @@ const ResultsQuizPage = () => {
     // states 
     const navigate = useNavigate();
     const quizifyData = useSavedData();
-    const { score, amount, category, difficulty, type } = quizifyData;
+    const { score, amount, category, difficulty, type, answered } = quizifyData;
 
     // calculate 
     const totalTime = amount * 60;
@@ -32,7 +32,14 @@ const ResultsQuizPage = () => {
 
                 {/* Quiz Summary */}
                 <div className="space-y-4">
+                    <Box
+                        title="Answered Questions"
+                        value={amount - answered}
+                        color="bg-indigo-100"
+                        textColor="text-indigo-800"
+                    />
                     <div className="grid grid-cols-2 gap-4">
+
                         <Box
                             title="Correct Answers"
                             value={score}
