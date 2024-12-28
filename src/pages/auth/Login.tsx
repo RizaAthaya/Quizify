@@ -1,6 +1,9 @@
 import FormLogin from "../../components/features/auth/FormLogin";
 import { googleLogin } from "../../api/services/auth";
 import { useNavigate } from "react-router-dom";
+// assets 
+import Image from "../../assets/Question.svg"
+import GImage from "../../assets/google.png"
 
 const Login = () => {
   const navigate = useNavigate();  
@@ -15,7 +18,7 @@ const Login = () => {
             A fun and interactive quiz platform designed to test your knowledge on various topics. It's perfect for both casual users and competitive learners.
           </p>
         </div>
-        <img src="/src/assets/Question.svg" className="max-w-md xl:max-w-lg" />
+        <img src={Image} className="max-w-md xl:max-w-lg" />
       </div>
 
       {/* Right side */}
@@ -41,7 +44,7 @@ const Login = () => {
               onClick={googleLogin}
               className="flex items-center justify-center w-full py-2 px-4 border-2 border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none"
             >
-              <img src="/src/assets/google.png" alt="Google logo" className="w-5 h-5 mr-3" />
+              <img src={GImage} alt="Google logo" className="w-5 h-5 mr-3" />
               Sign in with Google
             </button>
           </div>

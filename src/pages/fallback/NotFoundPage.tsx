@@ -1,6 +1,9 @@
 import Button from '../../components/shared/Button';
 import { useNavigate } from 'react-router-dom';
 
+// assets 
+import Image from "../../assets/404.svg"
+
 const NotFoundPage = () => {
   const navigate = useNavigate();
 
@@ -10,7 +13,7 @@ const NotFoundPage = () => {
         {/* Illustration */}
         <div className="flex items-center justify-center w-full py-4">
           <img
-            src="/src/assets/404.svg"
+            src={Image}
             className="max-w-xs sm:max-w-md w-full transition-transform duration-500 transform hover:scale-110"
             alt="404 Illustration"
           />
