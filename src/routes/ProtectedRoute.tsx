@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Popup from "../components/shared/Popup";
 
 const ProtectedRoute = () => {
-    const quiz = !!localStorage.getItem("quizify_data");
+    const quiz = !!localStorage.getItem("timer");
     const { user, loading } = useUser();
     const [showPopup, setShowPopup] = useState(false);
     const navigate = useNavigate();
@@ -21,7 +21,7 @@ const ProtectedRoute = () => {
 
     const handleContinue = () => {
         setShowPopup(false);
-        navigate("/quiz"); 
+        navigate("/quiz");
     };
 
     useEffect(() => {
@@ -29,7 +29,7 @@ const ProtectedRoute = () => {
             navigate('/dashboard')
             setShowPopup(true);
         }
-    }, [quiz, isAuthenticated]); 
+    }, [quiz, isAuthenticated]);
 
     if (loading) {
         return <LoadingPage />;
