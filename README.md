@@ -1,50 +1,92 @@
-# React + TypeScript + Vite
+# Quizify
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Quizify** is a web application that generates random quiz questions based on selected categories, difficulty levels, question types, and the number of questions. Built using React, Vite, and TypeScript.
 
-Currently, two official plugins are available:
+## Demo
+Visit the live application here: [Quizify Live on Vercel](https://quizify-l0kqsu90g-rizaathayas-projects.vercel.app/auth/login)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Quizify Preview](https://drive.google.com/file/d/1xehemBVcrI0B6c5IZwEz0yJHjOieB_DJ/view?usp=sharing)
 
-## Expanding the ESLint configuration
+## Key Features
+- Select question categories.
+- Adjust difficulty levels (easy, medium, hard).
+- Choose question types (multiple-choice, true/false).
+- Specify the number of questions.
+- Questions are generated randomly based on user preferences.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Technologies Used
+- **React**
+- **Vite**
+- **TypeScript**
+- **Tailwind CSS**
+- **Firebase** (used for user authentication)
+- **Open Trivia Database (OpenTDB)** (used as the quiz question source)
 
-- Configure the top-level `parserOptions` property like this:
+## How to Install and Run Locally
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Prerequisites
+Make sure you have the following installed:
+- [Node.js](https://nodejs.org/) (version 16 or later)
+- [Git](https://git-scm.com/)
+
+### Steps
+
+1. **Clone the Repository**
+
+   Run the following command to clone the repository to your local machine:
+   ```bash
+   git clone https://github.com/your-username/quizify.git
+   ```
+
+2. **Navigate to the Project Folder**
+
+   Navigate to the project directory:
+   ```bash
+   cd quizify
+   ```
+
+3. **Copy Environment File**
+
+   Copy the `.env.example` file and rename it to `.env`:
+   ```bash
+   cp .env.example .env
+   ```
+
+4. **Install Dependencies**
+
+   Run the following command to install all required dependencies:
+   ```bash
+   npm install
+   ```
+
+5. **Run the Project**
+
+   Start the application in development mode:
+   ```bash
+   npm run dev
+   ```
+
+   Then, open your browser and access the application at:
+   ```
+   http://localhost:5173
+   ```
+
+### Build for Production
+To create a production build, run the following command:
+```bash
+npm run build
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+The build output will be available in the `dist` folder.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Contribution
+If you would like to contribute to this project:
+1. Fork this repository.
+2. Create a new branch for your feature or fix (`git checkout -b new-feature`).
+3. Commit your changes (`git commit -m 'Add new feature'`).
+4. Push to your branch (`git push origin new-feature`).
+5. Open a Pull Request.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+---
+
+Thank you for using **Quizify**! Feel free to provide feedback or report issues on the [Issues](https://github.com/RizaAthaya/quizify/issues) page.
