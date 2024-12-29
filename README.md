@@ -3,9 +3,9 @@
 **Quizify** is a web application that generates random quiz questions based on selected categories, difficulty levels, question types, and the number of questions. Built using React, Vite, and TypeScript.
 
 ## Demo
-Visit the live application here: [Quizify Live on Vercel](https://quizify-l0kqsu90g-rizaathayas-projects.vercel.app/auth/login)
+Visit the live application here: [Quizify Live on Vercel](https://quizify-snowy.vercel.app/auth/login)
 
-![Quizify Preview](https://drive.google.com/file/d/1xehemBVcrI0B6c5IZwEz0yJHjOieB_DJ/view?usp=sharing)
+![Quizify Preview](https://github.com/user-attachments/assets/9315c58b-4942-4312-9807-1c759e2eaf85)
 
 ## Key Features
 - Select question categories.
